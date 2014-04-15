@@ -22,21 +22,22 @@ How to build
 
 To build the library run `make`.
 
-Note: The library must be built for the same architecture as that of the
-executable that needs to be traced for memory leaks.
+##### Note
 
+The library must be built for the same architecture as that of the executable that needs to be traced for memory leaks.
 
 Usage
 ------
 
-Once the library is built here are the instructions for how to use it.
+Once the library is built, copy the library `libtml.so` to the system that has the executable.
 
-* Copy the library `libtml.so` to the system where your executable is
-* Use the following command prefix before launching the executable
 
-LD_PRELOAD=./libtml.so <executable-path> [arguments]
+Use the following command to launch the executable:
 
-* Once started the library will produce a text file `tml.txt` that will
+    LD_PRELOAD=./libtml.so <executable-path> [arguments]
+
+
+The library will produce a text file `tml.txt` that will
   contain the traced logs of `malloc`, `realloc`, and `free`.
 
 
@@ -49,8 +50,9 @@ before actually executing them. It also records the stack trace (upto 10
 frames) for each of the call. This helps to detect the actual location of the
 memory leak.
 
-TODO: Developing a scirpt that will consume this text logs and produce a user
-friendly output showing the location of memory leaks.
+##### TODO
+
+Developing a scirpt that will produce user friendly memory-leak-output from the logged trace.
 
 
 Feedback
